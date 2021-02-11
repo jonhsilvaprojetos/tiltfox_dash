@@ -1,0 +1,194 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+
+body{
+    font-family: 'Montserrat', sans-serif;
+    background: url(../images/bg-principal.png) top center;
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.container {
+    max-width: 1400px;
+}
+
+#principal_content{
+    height: 100vh;
+}
+
+/* animations */
+ 
+  @keyframes cssAnimation {
+    from {
+      -webkit-transform: scale(1) translate(0px);
+    }
+    to {
+      -webkit-transform: scale(1.03) translate(0px);
+    }
+  }
+  @-webkit-keyframes cssAnimation {
+    from {
+      -webkit-transform: scale(1) translate(0px);
+    }
+    to {
+      -webkit-transform: scale(1.03) translate(0px);
+    }
+  }
+
+
+/*/ CABECALHO /*/
+
+header {
+    padding: 30px 0px 0px 0px;
+}
+
+header .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+header .logo {
+    max-width: 80px;
+    margin-right: 35px;
+}
+
+header .logo img {
+    max-width: 100%;
+}
+
+
+/*/ MENU /*/
+header .menu_principal {
+    display: flex;
+    align-items: center;
+}
+
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+header nav ul li a {
+    font-weight: 700;
+    font-size: 18px;
+}
+
+header .menu_principal nav ul li {
+    display: flex;
+}
+
+
+header .menu_principal nav ul li:not(:last-child):after {
+    content: '.';
+    color: #c8c8d4;
+    font-size: 45px;
+    margin: 0 15px;
+    line-height: 6px;
+}
+
+header nav ul li a {
+    color: #c9c9d6;
+    text-decoration: none !important;
+}
+
+header .menu_secundario nav ul li a {
+    color: #ca682d;
+}
+
+header nav ul li a:hover {
+    color: #f67233;
+}
+
+
+/*/ CORPO /*/
+
+
+/*/ BANNER /*/
+#banners {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    max-width: 1160px;
+    margin: 50px auto;
+  }
+  #banners * {
+    outline: none;
+  }
+  #banners .slider-track {
+    -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+  }
+  #banners div {
+    height: 100%;
+    position: relative;
+    z-index: 1;
+  }
+  #banners div img {
+    width: 100%;
+    -webkit-transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    transition: all 1s cubic-bezier(0.7, 0, 0.3, 1);
+    -webkit-transform: scale(1.03);
+            transform: scale(1.03);
+  }
+  #banners div.slick-active img {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+    -webkit-animation: cssAnimation 5s 1 ease-in-out forwards;
+    animation: cssAnimation 5s 1 ease-in-out forwards;
+  }
+
+/* dots */
+ul.slick-dots {
+    display: flex;
+    list-style: none;
+    align-items: center;
+    justify-content: center;
+}
+
+ul.slick-dots li button {
+    color: transparent;
+    width: 15px;
+    height: 15px;
+    border: none;
+    background: #c9c9d6;
+    border-radius: 50px;
+}
+
+ul.slick-dots li:not(:last-child) {
+    margin-right: 10px;
+}
+
+ul.slick-dots li.slick-active button {
+    background: #e56823;
+}
+
+
+
+/*/ FOOTER /*/
+
+
+@media screen and (max-width: 1400px){
+    header {
+        padding: 30px 25px 0px 25px;
+    }
+
+    #banners {
+        position: relative;
+        z-index: 1;
+        height: 100%;
+        max-width: 1140px;
+        margin: 50px auto;
+    }
+    #banners * {
+        outline: none;
+    }
+    #banners div {
+        height: 100%;
+        position: relative;
+        z-index: 1;
+    }
+}
