@@ -5,7 +5,7 @@ const router = require("./routes/router");
 const PORT = 3000 || process.env.PORT;
 
 // Connection database
-//require("./database/connection");
+require("./database/connection");
 
 // View Engine
 app.set('view engine', 'ejs');
