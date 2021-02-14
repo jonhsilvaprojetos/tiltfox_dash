@@ -7,9 +7,24 @@ module.exports = {
         if(req.session.msg){
             let msg = req.session.msg;
             delete req.session.msg;
-            return res.render("index", {msg: msg});
+            return res.render("user/login", {
+                msg: msg,
+                config: {
+                    page_class: "login-page", 
+                    title: "Tilt Fox E-sports - Login", 
+                    css_file: null, 
+                    script_file:"login.js"
+                }
+            });
         }else{
-            return res.render("index");
+            return res.render("user/login", {
+                config: {
+                    page_class: "login-page", 
+                    title: "Tilt Fox E-sports - Login", 
+                    css_file: null, 
+                    script_file:"login.js"
+                }
+            });
         }
     },
 
@@ -32,22 +47,22 @@ module.exports = {
                         res.redirect("/panel");
                     }else{
                         req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Senha inválida, verifique seus dados</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                        res.redirect("/");
+                        res.redirect("user/login");
                     }
                 }else{
                     req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Aguarde, Conta aguardando liberação</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                    res.redirect("/");
+                    res.redirect("user/login");
                 }
                 
     
             }else{
                 req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Nenhum cadastro com este e-mail</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                res.redirect("/");
+                res.redirect("user/login");
             }
     
         }).catch(error => {
             req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Houve um erro ao logar, tente novamente</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-            res.redirect("/");
+            res.redirect("user/login");
         })
     },
 
@@ -55,9 +70,24 @@ module.exports = {
         if(req.session.msg){
             let msg = req.session.msg;
             delete req.session.msg;
-            return res.render("user/register", {msg: msg});
+            return res.render("user/register", {
+                msg: msg,
+                config: {
+                    page_class: "registe-page", 
+                    title: "Tilt Fox E-sports - Cadastro", 
+                    css_file: null, 
+                    script_file:"register.js"
+                }
+            });
         }else{
-            return res.render("user/register");
+            return res.render("user/register", {
+                config: {
+                    page_class: "registe-page", 
+                    title: "Tilt Fox E-sports - Cadastro", 
+                    css_file: null, 
+                    script_file:"register.js"
+                }
+            });
         }
     },
 
@@ -77,16 +107,16 @@ module.exports = {
                     password: hash
                 }).then((user) => {
                     req.session.msg = '<div class="alert alert-success mt-2" role="alert"><i class="feather icon-check-circle mr-1 align-middle"></i><span>Cadastro realizado com sucesso</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                    return res.redirect("/");
+                    return res.redirect("user/login");
     
                 }).catch(error => {
                     req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Houve um erro ao cadastrar</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                    return res.redirect("/register");
+                    return res.redirect("user/register");
                 });
     
             }else{
                 req.session.msg = '<div class="alert alert-warning mt-2" role="alert"><i class="feather icon-alert-triangle mr-1 align-middle"></i><span>Este e-mail já está sendo utilizado</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
-                return res.redirect("/register");
+                return res.redirect("user/register");
             }
         });
     },

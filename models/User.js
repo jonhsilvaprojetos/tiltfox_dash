@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema({
-    name: {
+    nickname: {
         type: String,
         required: true
     },
@@ -14,21 +14,33 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    route: {
+        type: String,
+        required: true
+    },
+    elo:{
+        type:String,
+        required: true
+    },
+    team:{
+        type: mongoose.Types.ObjectId,
+        ref: "team"
+    },
+    department: {
+        type: mongoose.Types.ObjectId,
+        ref: "department"
+    },
     status: {
         type: Number,
         default: 0
     },
-    access_level: {
-        type: Number,
-        default: 1
-    },
     createdTime: {
         type: Date,
-        default: Date.now()
+        default: new Date()
     },
     lastUpdateTime: {
         type: Date,
-        default: Date.now()
+        default: new Date()
     }
 });
 
