@@ -132,7 +132,7 @@ module.exports = {
                     
                 });
 
-                req.session.msg = '<div class="alert alert-success mt-5" role="alert"><i class="feather icon-check-circle mr-1 align-middle"></i><span>Cadastro realizado, aguarde liberação</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
+                req.session.msg = '<div class="alert alert-success mt-5" role="alert"><i class="feather icon-check-circle mr-1 align-middle"></i><span>Cadastro realizado, aguarde a liberação</span><button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true"><i class="feather icon-x-circle"></i></span></button></div>';
                 return res.redirect("/login");
 
             } catch (error) {
