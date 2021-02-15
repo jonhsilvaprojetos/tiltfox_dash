@@ -23,13 +23,18 @@ const UserSchema = new Schema({
         required: true
     },
     team:{
-        type: mongoose.Types.ObjectId,
-        ref: "team"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Team",
+        require: true
     },
     department: {
-        type: mongoose.Types.ObjectId,
-        ref: "department"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Department"
     },
+    score: [{
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Score"
+    }],
     status: {
         type: Number,
         default: 0

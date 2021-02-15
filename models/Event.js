@@ -15,8 +15,8 @@ const EventSchema = new Schema({
         required: true,
     },
     team:{
-        type: mongoose.Types.ObjectId,
-        ref: "team"
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Team"
     },
     linkEvent:{
         type: String,

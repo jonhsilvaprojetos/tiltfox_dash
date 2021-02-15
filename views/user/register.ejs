@@ -16,7 +16,7 @@
             <div class="block xl:grid grid-cols-2 gap-4">
                 <!-- BEGIN: Register Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
-                    <a href="" class="-intro-x flex items-center pt-5">
+                    <a href="/" class="-intro-x flex items-center pt-5">
                         <span class="text-white text-xl ml-3 font-extrabold italic tracking-wider"> TILT<span class="font-extrabold">FOX</span></span>
                     </a>
                     <div class="my-auto">
@@ -37,11 +37,11 @@
                             Registrar
                         </h2>
                         <div class="intro-x mt-2 text-gray-500 dark:text-gray-500 xl:hidden text-center">Cadastre-se e tenha acesso ao painel do jogador.</div>
-                        <form class="intro-x mt-8 form__register" method="POST">
-                            <input type="text" class="intro-x login__input input input--lg border border-gray-300 block input__nickname" placeholder="Nickname no jogo" required>
-                            <input type="email" class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__email" placeholder="E-mail"  autocomplete="no" required>
-                            <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4  input__password" placeholder="Senha" required>
-                            <select class="intro-x login__input input input--lg border border-gray-300 block mt-4  input__route" required>
+                        <form class="intro-x mt-8 form__register" method="POST" action="/register/save">
+                            <input name="nickname" type="text" class="intro-x login__input input input--lg border border-gray-300 block input__nickname" placeholder="Nickname no jogo" required>
+                            <input name="email" type="email" class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__email" placeholder="E-mail"  autocomplete="no" required>
+                            <input name="password" type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4  input__password" placeholder="Senha" required>
+                            <select name="route" class="intro-x login__input input input--lg border border-gray-300 block mt-4  input__route" required>
                                 <option value="" selected disabled hidden>Selecione seu rota</option>
                                 <option value="Topo">Topo</option>
                                 <option value="Caçador">Caçador</option>
@@ -49,7 +49,7 @@
                                 <option value="Atirador">Atirador</option>
                                 <option value="Suporte">Suporte</option>
                             </select>
-                            <select class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__elo" required>
+                            <select name="elo" class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__elo" required>
                                 <option value="" selected disabled hidden>Selecione seu elo</option>
                                 <option value="Ferro">Ferro</option>
                                 <option value="Bronze">Bronze</option>
@@ -61,21 +61,21 @@
                                 <option value="Grão-Mestre">Grão-Mestre</option>
                                 <option value="Challenger">Challenger</option>
                             </select>
-                            <select class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__team" required>
+                            <select name="team" class="intro-x login__input input input--lg border border-gray-300 block mt-4 input__team" required>
                                 <option value="" selected disabled hidden>Selecione a line-up</option>
-                                <option value="line principal">Tilt Fox</option>
-                                <option value="tiltfox academy">Tilt Fox Academy</option>
+                                <option value="Tilt Fox">Tilt Fox</option>
+                                <option value="Tilt Fox Academy">Tilt Fox Academy</option>
                             </select>
                             <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
                                 <button type="submit" class="button button--lg w-full xl:w-32 text-white bg-theme-11 xl:mr-3 align-top inline-block" onclick="APP.register()">Registrar</button>
                                 <a href="/login" class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top inline-block">Entrar</a>
                             </div>
                         </form>
-                        
+                        <% if (typeof msg != 'undefined') { %>
+                            <%- msg %>
+                        <%}%>
                     </div>
-                    <% if (typeof msg != 'undefined') { %>
-                        <%- msg %>
-                    <%}%>
+                    
                 </div>
                 <!-- END: Register Form -->
             </div>

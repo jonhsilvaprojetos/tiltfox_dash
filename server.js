@@ -30,6 +30,19 @@ app.use(express.json());
 // Import Routes
 app.use(router);
 
+
+// 404 Not Found Page
+app.use(function(req, res, next) {
+    res.status(404).render("404", {
+        config: {
+            page_class: "not-found", 
+            title: "Tilt Fox E-sports - Página não encontrada", 
+            css_file: null, 
+            script_file: null
+        }
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor online em: http://localhost:${PORT}`);
 });

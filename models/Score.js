@@ -1,14 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const TeamSchema = new Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    game: {
+const ScoreSchema = new Schema({
+    player: {
         type: mongoose.Schema.Types.ObjectId,
-        ref: "Game"
+        ref: "User"
+    },
+    point: {
+        type: Number,
+    },
+    typeScore: {
+        type: String
+    },
+    comments:{
+        type:String
     },
     createdTime: {
         type: Date,
@@ -21,4 +26,4 @@ const TeamSchema = new Schema({
 });
 
 
-module.exports = mongoose.model('Team', TeamSchema);
+module.exports = mongoose.model('Score', ScoreSchema);

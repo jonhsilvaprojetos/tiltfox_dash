@@ -40678,6 +40678,26 @@ video {
   background-color: rgba(49, 96, 216, var(--bg-opacity));
 }
 
+/*/ JONH EDIT TILT /*/
+.alert {
+  background: #232a3b;
+  border-bottom: 3px solid #1e2533 !important;
+  padding: 7px 20px;
+  text-align: center;
+  border-radius: 2px;
+  display: block;
+}
+    
+.alert.alert-warning {
+  border-bottom: 3px solid #f68a00 !important;
+}
+.alert.alert-success {
+  border-bottom: 3px solid #00f684 !important;
+}
+.alert.alert-danger {
+  border-bottom: 3px solid #ff203f !important;
+}
+
 @media (min-width: 640px){
   .sm\:container{
     width: 100%;

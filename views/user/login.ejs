@@ -16,7 +16,7 @@
             <div class="block xl:grid grid-cols-2 gap-4">
                 <!-- BEGIN: Login Info -->
                 <div class="hidden xl:flex flex-col min-h-screen">
-                    <a href="" class="-intro-x flex items-center pt-5">
+                    <a href="/" class="-intro-x flex items-center pt-5">
                         <span class="text-white text-xl ml-3 font-extrabold italic tracking-wider"> TILT<span class="font-extrabold">FOX</span></span>
                     </a>
                     <div class="my-auto">
@@ -37,28 +37,30 @@
                             Logar
                         </h2>
                         <div class="intro-x mt-2 text-gray-500 xl:hidden text-center">Gerencie sua conta, tenha acesso ao calendário de treinos, campeonatos e eventos.</div>
-                        <div class="intro-x mt-8">
-                            <input type="text" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="E-mail">
-                            <input type="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Senha">
-                        </div>
-                        <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
-                            <div class="flex items-center mr-auto">
-                                <input type="checkbox" class="input border mr-2" id="remember-me">
-                                <label class="cursor-pointer select-none" for="remember-me">lembrar-me</label>
+                        <form class="intro-x mt-8 form__login" method="POST" action="/authenticate">
+                            <input type="email" name="email" class="intro-x login__input input input--lg border border-gray-300 block" placeholder="E-mail" required>
+                            <input type="password" name="password" class="intro-x login__input input input--lg border border-gray-300 block mt-4" placeholder="Senha" required>
+                            <div class="intro-x flex text-gray-700 dark:text-gray-600 text-xs sm:text-sm mt-4">
+                                <div class="flex items-center mr-auto">
+                                    <input type="checkbox" class="input border mr-2" id="remember-me">
+                                    <label class="cursor-pointer select-none" for="remember-me">lembrar-me</label>
+                                </div>
+                                <a href="">Esqueceu a senha?</a> 
                             </div>
-                            <a href="">Esqueceu a senha?</a> 
-                        </div>
-                        <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
-                            <a class="button button--lg w-full xl:w-32 text-white bg-theme-11 xl:mr-3 align-top inline-block">Entrar</a>
-                            <a href="/register" class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top inline-block">Cadastrar</a>
-                        </div>
+                            <div class="intro-x mt-5 xl:mt-8 text-center xl:text-left">
+                                <button type="submit" class="button button--lg w-full xl:w-32 text-white bg-theme-11 xl:mr-3 align-top inline-block" onclick="APP.login()">Entrar</button>
+                                <a href="/register" class="button button--lg w-full xl:w-32 text-gray-700 border border-gray-300 dark:border-dark-5 dark:text-gray-300 mt-3 xl:mt-0 align-top inline-block">Cadastrar</a>
+                            </div>
+                            <% if (typeof msg != 'undefined') { %>
+                                <%- msg %>
+                            <%}%>
+                        </form>
+                        
                         <div class="intro-x mt-10 xl:mt-24 text-gray-700 dark:text-gray-600 text-center xl:text-left">
                             Developer by <a class="text-theme-11 dark:text-theme-13" href="https://www.instagram.com/jonhsilvaag/" target="_blank">Jonh Silva</a>
                         </div>
                     </div>
-                    <% if (typeof msg != 'undefined') { %>
-                        <%- msg %>
-                    <%}%>
+                    
                 </div>
                 <!-- END: Login Form -->
             </div>

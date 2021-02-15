@@ -14,7 +14,7 @@ const DepartmentSchema = new Schema({
             createEvent: false,
             players: true,
             updatePlayer: false,
-            createAccount: false,
+            createPlayer: false,
             teams: true,
             createTeam: false,
             game: false,
