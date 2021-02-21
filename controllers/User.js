@@ -59,8 +59,7 @@ module.exports = {
 
     // BUSINES RULES
     async authenticate(req, res){
-        let email = req.body.email;
-        let password = req.body.password;
+        let {email, password} = req.body;
 
         let findUser = await User.findOne({email}).populate(["team", "department", "score"]);
         
@@ -97,7 +96,7 @@ module.exports = {
     },
 
     async saveRegister(req, res){
-        let { nickname, email, password, route, elo  } = req.body;
+        let { nickname, email, password, route, elo } = req.body;
         let teamName = req.body.team;
         let findTeam = await Team.findOne({name: teamName});
         let department = await Department.findOne({name: "Jogador"});
@@ -107,17 +106,6 @@ module.exports = {
         if(!findUser){
             let salt = bcrypt.genSaltSync(10);
             let hash = bcrypt.hashSync(password, salt);
-
-            console.log("data user", {
-                nickname,
-                email,
-                password: hash,
-                route,
-                elo,
-                team: findTeam._id,
-                department: department._id,
-                
-            });
 
             try {
 
